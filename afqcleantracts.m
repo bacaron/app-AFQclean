@@ -55,7 +55,7 @@ ys_resulting = zeros([1, num_tracts]);
 % tract were cleaned
 for i = 1 : num_tracts
     num_fibers = length(fg_classified(i).fibers);
-    num_fibers_cleaned = length(fg_classified_clean(i).fibers);
+    num_fibers_cleaned = length(fg_classified_clean(i).fg.fibers);
     amount_cleaned = num_fibers - num_fibers_cleaned;
     
     xs{i} = fg_classified(i).name;
@@ -132,7 +132,7 @@ tract_info = cell(length(fg_classified), 2);
 
 for i = 1:length(fg_classified)
     tract_info{i,1} = fg_classified(i).name;
-    tract_info{i,2} = length(fg_classified(i).fibers);
+    tract_info{i,2} = length(fg_classified(i).fg.fibers);
 end
 
 T = cell2table(tract_info);
